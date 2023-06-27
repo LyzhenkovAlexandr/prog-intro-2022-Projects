@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Contest {
+public class B_2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String line = scanner.nextLine();

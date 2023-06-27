@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Contest {
+public class M_2 {
 //    private static Reader inputString;
 //    private static String line;
 //    private static int index = 0;

@@ -3,7 +3,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Contest {
+public class M_1 {
     private static Reader inputString;
     private static String line;
     private static int index = 0;

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Contest {
+public class I_4 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = Integer.parseInt(sc.nextLine());

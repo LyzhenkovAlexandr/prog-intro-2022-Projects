@@ -6,3 +6,8 @@ _*
 
 # Do not store .class files
 *.class
+
+# Store .git files
+!.git*
+
+prog-intro-2022-Projects.iml
