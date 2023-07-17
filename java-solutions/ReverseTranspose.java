@@ -6,11 +6,11 @@ import java.util.Scanner;
 public class ReverseTranspose {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int max_lenght = 0;
+        int maxLenght = 0;
         List<int[]> arrayList = new ArrayList<>();
 
         while (sc.hasNextLine()) {
-            int count_lenght = 0;
+            int countLenght = 0;
 
             Scanner str = new Scanner(sc.nextLine());
             int count = 0;
@@ -22,15 +22,15 @@ public class ReverseTranspose {
                 }
                 int number = str.nextInt();
                 array[count - 1] = number;
-                count_lenght += 1;
+                countLenght += 1;
             }
             array = Arrays.copyOf(array, count);
             arrayList.add(array);
-            max_lenght = Math.max(max_lenght, count_lenght);
+            maxLenght = Math.max(maxLenght, countLenght);
         }
 
-        for (int i = 0; i < max_lenght; i++) {
-            for (int[] item: arrayList) {
+        for (int i = 0; i < maxLenght; i++) {
+            for (int[] item : arrayList) {
                 if (i >= item.length) {
                     continue;
                 }

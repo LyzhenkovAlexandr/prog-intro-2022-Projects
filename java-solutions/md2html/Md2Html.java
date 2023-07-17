@@ -58,7 +58,7 @@ public class Md2Html {
 
                 Stack<String> stack = new Stack<>();
                 int ind = (captionLevel > 0) ? captionLevel + 1 : 0;
-                List<Integer> indicesWhereMayBeSingleSymbol = new ArrayList<Integer>();
+                List<Integer> indicesWhereMayBeSingleSymbol = new ArrayList<>();
                 while (ind < sb.length()) {
                     if (sb.charAt(ind) == '<') {
                         hbuilder.append("&lt;");
@@ -96,7 +96,7 @@ public class Md2Html {
                 }
 
                 // одиночные * или _
-                for(int i = indicesWhereMayBeSingleSymbol.size() - 1; i >= 0; --i) {
+                for (int i = indicesWhereMayBeSingleSymbol.size() - 1; i >= 0; --i) {
                     int index = indicesWhereMayBeSingleSymbol.get(i);
                     String singleTag = stack.pop();
                     hbuilder.delete(index, index + 4);

@@ -20,19 +20,23 @@ public class Scanner {
         this.line = line;
         sep = System.lineSeparator();
     }
+
     public Scanner(FileInputStream s) throws IOException {
         this.inputString = new InputStreamReader(s, StandardCharsets.UTF_8);
         sep = System.lineSeparator();
     }
+
     public Scanner(InputStream bufferedReader) throws IOException {
         this.inputString = new InputStreamReader(bufferedReader);
         sep = System.lineSeparator();
     }
+
     public boolean hasNextLine() throws IOException {
         line = readLine();
         isRead = true;
         return !theEnd;
     }
+
     public String nextLine() throws IOException {
         if (isRead) {
             isRead = false;
@@ -41,9 +45,11 @@ public class Scanner {
             return readLine();
         }
     }
+
     private int createBuffer() throws IOException {
         return inputString.read(buffer);
     }
+
     private String readLine() throws IOException {
         if (sep.length() == 2) {
             return windows();
@@ -74,13 +80,6 @@ public class Scanner {
                     ready = true;
                     break;
                 }
-//                if (sep != 13 && sep != 10) {
-//                    string.append(buffer[i]);
-//                } else if (sep == 10) {
-//                    i++;
-//                    ready = true;
-//                    break;
-//                }
                 i++;
             }
             if (ready)
@@ -90,6 +89,7 @@ public class Scanner {
         }
         return string.toString();
     }
+
     private String windows() throws IOException {
         StringBuilder string = new StringBuilder();
         boolean ready = false;
@@ -119,35 +119,7 @@ public class Scanner {
         }
         return string.toString();
     }
-//    private String readLine() throws IOException {
-//        StringBuilder string = new StringBuilder();
-//        boolean ready = false;
-//        while (true) {
-//            if (r == -1 && string.length() != 0) {
-//                return string.toString();
-//            }
-//            if (r == -1) {
-//                theEnd = true;
-//                return null;
-//            }
-//            while (i < r) {
-//                int sep = buffer[i];
-//                if (sep != 13 && sep != 10) {
-//                    string.append(buffer[i]);
-//                } else if (sep == 10) {
-//                    i++;
-//                    ready = true;
-//                    break;
-//                }
-//                i++;
-//            }
-//            if (ready)
-//                break;
-//            i = 0;
-//            r = createBuffer();
-//        }
-//        return string.toString();
-//    }
+
     public boolean hasNextInt() {
         for (int i = index; i < line.length(); i++) {
             char ch = line.charAt(i);
@@ -172,6 +144,7 @@ public class Scanner {
         str = new StringBuilder();
         return num;
     }
+
     public boolean hasNextWord() {
         return hasNextInt();
     }
@@ -194,91 +167,20 @@ public class Scanner {
         }
         return false;
     }
+
     public String nextTrueWord() {
         String stroke = String.valueOf(str);
         str = new StringBuilder();
         return stroke;
     }
+
     public String nextWord() {
         String stroke = String.valueOf(str);
         str = new StringBuilder();
         return stroke;
     }
+
     public void close() throws IOException {
         inputString.close();
     }
 }
-
-
-
-//import java.io.*;
-//import java.nio.charset.StandardCharsets;
-//
-//public class Scanner {
-//    private BufferedReader inputString;
-//    private String line;
-//    private int index = 0;
-//    private StringBuilder str = new StringBuilder();
-//    private boolean isRead = false;
-//
-//    public Scanner(String line) {
-//        this.line = line;
-//    }
-//
-//    public Scanner(InputStream bufferedReader) {
-//        this.inputString = new BufferedReader(new InputStreamReader(bufferedReader, StandardCharsets.UTF_8));
-//    }
-//    public Scanner(FileInputStream s) throws FileNotFoundException {
-//        this.inputString = new BufferedReader(new InputStreamReader(s, StandardCharsets.UTF_8));
-//    }
-//
-//    public boolean hasNextLine() throws IOException {
-//        return nextLine() != null;
-//    }
-//
-//    public String nextLine() throws IOException {
-//        if (!isRead) {
-//            line = inputString.readLine();
-//            isRead = true;
-//        } else {
-//            isRead = false;
-//        }
-//        return line;
-//    }
-//
-//    public boolean hasNextInt() {
-//        for (int i = index; i < line.length(); i++) {
-//            char ch = line.charAt(i);
-//            if (!Character.isWhitespace(ch)) {
-//                str.append(ch);
-//                index++;
-//                if (i + 1 == line.length() && str.length() != 0) {
-//                    return true;
-//                }
-//            } else if (str.length() != 0) {
-//                index++;
-//                return true;
-//            } else {
-//                index++;
-//            }
-//        }
-//        return false;
-//    }
-//
-//    public int nextInt() {
-//        int num = Integer.parseInt(String.valueOf(str));
-//        str = new StringBuilder();
-//        return num;
-//    }
-//    public boolean hasNextWord() {
-//        return hasNextInt();
-//    }
-//    public String nextWord() {
-//        String stroke = String.valueOf(str);
-//        str = new StringBuilder();
-//        return stroke;
-//    }
-//    public void close() throws IOException {
-//        inputString.close();
-//    }
-//}

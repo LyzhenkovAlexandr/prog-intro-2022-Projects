@@ -1,14 +1,15 @@
 package markup;
+
 import java.util.List;
 
 
 public abstract class MarkAbstract implements Mark {
     private final List<Mark> array;
-    protected abstract String getMarkDown();
-    protected abstract String getTex();
+
     public MarkAbstract(final List<Mark> array) {
         this.array = array;
     }
+
     @Override
     public final void toMarkdown(final StringBuilder s) {
         final String ch = getMarkDown();
@@ -18,6 +19,7 @@ public abstract class MarkAbstract implements Mark {
         }
         s.append(ch);
     }
+
     @Override
     public void toTex(final StringBuilder s) {
         final String tag = getTex();
@@ -29,4 +31,8 @@ public abstract class MarkAbstract implements Mark {
         }
         s.append('}');
     }
+
+    protected abstract String getMarkDown();
+
+    protected abstract String getTex();
 }

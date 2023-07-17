@@ -21,7 +21,7 @@ public class Main {
             pos[idx++] = listernKey.nextInt();
         }
 
-        new MultiGame(pos,players,score).GameStart();
+        new MultiGame(pos, players, score).GameStart();
         System.out.println("Игры завершины");
     }
 }
